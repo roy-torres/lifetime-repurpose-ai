@@ -68,7 +68,7 @@ export default function ApiKeyModal({ isOpen, onClose, currentKey, onSaveKey, ha
             <input
               type="password"
               className="input-field"
-              placeholder="Paste AIzaSy... key here"
+              placeholder="Paste Gemini API key here"
               value={inputKey}
               onChange={(e) => setInputKey(e.target.value)}
               style={{ width: '100%' }}
