@@ -1,7 +1,14 @@
 # Life Time Men's Apparel — Content Repurposing Studio
 Powered by **Google Gemini 3.6 Flash** & **Nano Banana 2 (`gemini-3.1-flash-image-preview`)**
 
+[![Deploy with Vercel](https://vercel.com/button)](https://anti-two-flame.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-anti--two--flame.vercel.app-10b981?style=flat&logo=vercel)](https://anti-two-flame.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-roy--torres%2Flifetime--repurpose--ai-black?style=flat&logo=github)](https://github.com/roy-torres/lifetime-repurpose-ai)
+[![Gemini](https://img.shields.io/badge/Google%20Gemini-3.6%20Flash-4285F4?style=flat&logo=google)](https://ai.google.dev/)
+
 An AI-powered content repurposing studio engineered for [Life Time Men's Apparel](https://shop.lifetime.life/apparel-accessories/men-s-apparel). Takes long-form YouTube video transcripts and synthesizes platform-native, high-converting social posts for **LinkedIn**, **Threads**, and **Instagram**, coupled with custom editorial activewear imagery generated via Google's **Nano Banana** multimodal image architecture.
+
+👉 **Live Production App:** [https://anti-two-flame.vercel.app](https://anti-two-flame.vercel.app)
 
 ---
 
@@ -34,7 +41,8 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
 - **Image Generation**: Google Nano Banana 2 (`gemini-3.1-flash-image-preview` / `gemini-3.1-flash-image`) with multimodal image response parts (`responseModalities: ['TEXT', 'IMAGE']`).
 - **SDK**: `@google/genai` (Official Google Gen AI SDK v2.24+).
 - **Frontend**: React 18 + Vite 6 + Vanilla CSS Design System with custom tokens & glassmorphism.
-- **Backend**: Node.js v24 + Express 4 + YouTube Transcript Scraper.
+- **Backend & Serverless**: Node.js v24 + Express 4 + Vercel Serverless Functions (`api/index.js` with 60s timeout).
+- **Deployment**: Vercel CI/CD via GitHub integration.
 
 ---
 
@@ -42,7 +50,10 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
 
 ```text
 .
+├── api/
+│   └── index.js                  # Serverless function entrypoint for Vercel
 ├── server.js                     # Fullstack Express server + Gemini & Nano Banana endpoints + Vite middleware
+├── vercel.json                   # Vercel routing rewrites & 60s function timeout config
 ├── .env.example                  # Template environment variables
 ├── .gitignore                    # Prevents secret keys, dist, and node_modules from being committed
 ├── package.json                  # Dependencies & run scripts
@@ -69,7 +80,7 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
 
 ---
 
-## Quickstart
+## Quickstart (Local Development)
 
 ### 1. Clone & Install Dependencies
 ```bash
@@ -98,6 +109,20 @@ npm run dev
 
 Open your browser to:
 👉 **`http://localhost:3000`**
+
+---
+
+## Vercel Deployment
+
+This project is configured for seamless deployment to **Vercel** via serverless architecture:
+
+1. **Push to GitHub**: Push your repository to GitHub.
+2. **Import into Vercel**: Connect the repository to your Vercel account.
+3. **Set Environment Variables** in the Vercel Dashboard:
+   - `GEMINI_API_KEY`: Your Google AI Studio API key.
+   - `GEMINI_TEXT_MODEL`: `gemini-3.6-flash`
+   - `GEMINI_IMAGE_MODEL`: `gemini-3.1-flash-image-preview`
+4. **Deploy**: Vercel will automatically build the Vite frontend (`dist/`) and route `/api/*` through the serverless function in `api/index.js` with a 60-second execution window.
 
 ---
 
