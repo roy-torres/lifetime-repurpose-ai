@@ -28,9 +28,10 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
   - **Model Selector**: Switch between `gemini-3.1-flash-image-preview`, `gemini-3.1-flash-image`, `nano-banana-pro-preview`, and `gemini-2.5-flash-image` on the fly.
   - Editable prompts, 1-click regenerate, instant preview fallback, fullscreen lightbox, and high-res PNG downloads.
 - **In-App Social Card Integration**: Generated visuals appear directly attached to the LinkedIn and Instagram preview cards.
-- **Secure `.env` Integration**:
-  - Reads `GEMINI_API_KEY` from your local `.env` file (kept private and git-ignored).
-  - In-app **API Key Modal** lets you view status and update your key directly without restarting the server.
+- **Zero-Friction Production Mode & Architecture Modal**:
+  - Pre-configured serverless API key pipeline ensures reviewers, hiring managers, and prospective employers can immediately test the studio without any authentication friction.
+  - Live **AI Engine Active** status badge with real-time pulse indicator and an interactive **AI Architecture & Pipeline Specs** modal detailing Gemini reasoning, Nano Banana visual parameters, and Life Time brand calibration.
+  - Discreet developer override collapsible allows custom API key injection for local testing or personal quota routing.
 - **Instant Demo Presets**: Includes 4 curated fitness & athletic apparel transcripts (*5:30 AM Discipline*, *Gym-to-Street Capsule*, *Pickleball & Active Recovery*, and *BodyBUILDING vs BodyBreaking: Internal vs External Training*) and a 1-click "Explore Demo Output" button.
 
 ---
@@ -64,8 +65,8 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
     ├── App.jsx                   # Central studio controller & layout
     ├── index.css                 # Minimalist athletic luxury CSS design tokens
     ├── components/
-    │   ├── Header.jsx            # Branding, Life Time shop link & key status
-    │   ├── ApiKeyModal.jsx       # In-app key configuration with .env persistence
+    │   ├── Header.jsx            # Branding, Life Time shop link & live AI Engine status badge
+    │   ├── ApiKeyModal.jsx       # AI architecture & specs modal with developer key override
     │   ├── PromptingBox.jsx      # YouTube prompt input, URL caption fetcher & tone controls
     │   ├── ResultsView.jsx       # Tabbed and split dashboard for all platforms
     │   ├── SocialCard.jsx        # LinkedIn preview with attached visual & 1-click copy

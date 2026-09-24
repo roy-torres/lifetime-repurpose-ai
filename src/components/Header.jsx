@@ -33,15 +33,21 @@ export default function Header({ hasKey, onOpenKeyModal }) {
 
         <button
           onClick={onOpenKeyModal}
-          className={`btn btn-sm ${hasKey ? 'btn-secondary' : 'btn-primary'}`}
-          title="Configure Google Gemini API Key"
+          className={`btn btn-sm ${hasKey ? 'btn-secondary status-badge-btn' : 'btn-primary'}`}
+          title={hasKey ? 'View AI Engine & Architecture Specs' : 'Configure Google Gemini API Key'}
         >
-          <Key size={14} />
-          <span>{hasKey ? 'Gemini Key Active' : 'Set Gemini Key'}</span>
           {hasKey ? (
-            <ShieldCheck size={14} style={{ color: '#10b981' }} />
+            <>
+              <span className="live-status-dot" />
+              <span>AI Engine Active</span>
+              <span className="model-chip">Gemini 2.5</span>
+            </>
           ) : (
-            <AlertCircle size={14} style={{ color: '#ef4444' }} />
+            <>
+              <Key size={14} />
+              <span>Set Gemini Key</span>
+              <AlertCircle size={14} style={{ color: '#ef4444' }} />
+            </>
           )}
         </button>
       </div>

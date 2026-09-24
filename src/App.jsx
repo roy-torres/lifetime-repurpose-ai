@@ -274,6 +274,7 @@ export default function App() {
         currentKey={localApiKey}
         onSaveKey={handleSaveKey}
         hasEnvKey={hasEnvKey}
+        imageModel={selectedImageModel}
       />
 
       <ImageModal
