@@ -28,11 +28,38 @@ export default function PromptingBox({
 
     setFetchingUrl(true);
     setFetchError(null);
+
+    const normalizedUrl = youtubeUrl.trim();
+
+    // 1. Instant client-side match for verified presets (prevents Vercel cloud datacenter IP blocks)
+    const extractId = (str) => {
+      if (!str) return null;
+      if (/^[a-zA-Z0-9_-]{11}$/.test(str)) return str;
+      const match = str.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
+      return match ? match[1] : null;
+    };
+
+    const inputId = extractId(normalizedUrl);
+    const matchedSample = SAMPLE_TRANSCRIPTS.find((s) => {
+      const sampleId = extractId(s.videoUrl);
+      return (sampleId && inputId && sampleId === inputId) || (s.id && normalizedUrl.includes(s.id));
+    });
+
+    if (matchedSample && matchedSample.transcript) {
+      setTranscript(matchedSample.transcript);
+      if (matchedSample.apparelFocus && setApparelFocus) {
+        setApparelFocus(matchedSample.apparelFocus);
+      }
+      setActiveSampleId(matchedSample.id);
+      setFetchingUrl(false);
+      return;
+    }
+
     try {
       const res = await fetch('/api/fetch-transcript', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: youtubeUrl.trim() })
+        body: JSON.stringify({ url: normalizedUrl })
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to retrieve YouTube transcript');

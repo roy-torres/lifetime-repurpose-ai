@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
 import { YoutubeTranscript } from 'youtube-transcript';
+import { SAMPLE_TRANSCRIPTS } from './src/data/sampleTranscripts.js';
 
 dotenv.config();
 
@@ -119,26 +120,49 @@ app.post('/api/fetch-transcript', async (req, res) => {
       return res.status(400).json({ error: 'Invalid YouTube URL or Video ID format.' });
     }
 
-    const transcriptItems = await YoutubeTranscript.fetchTranscript(videoId);
-    if (!transcriptItems || transcriptItems.length === 0) {
-      return res.status(404).json({ error: 'No captions found for this YouTube video.' });
+    // Attempt direct extraction via YoutubeTranscript
+    try {
+      const transcriptItems = await YoutubeTranscript.fetchTranscript(videoId);
+      if (transcriptItems && transcriptItems.length > 0) {
+        const fullTranscript = transcriptItems
+          .map((item) => item.text.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"'))
+          .join(' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        return res.json({
+          success: true,
+          videoId,
+          itemCount: transcriptItems.length,
+          transcript: fullTranscript
+        });
+      }
+    } catch (ytError) {
+      console.warn(`[fetch-transcript] Direct YouTube fetch failed for ${videoId}:`, ytError.message);
     }
 
-    const fullTranscript = transcriptItems
-      .map((item) => item.text.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"'))
-      .join(' ')
-      .replace(/\s+/g, ' ')
-      .trim();
+    // Resilient Fallback: check known curated transcripts library (handles Vercel/datacenter IP blocks)
+    const matchingPreset = SAMPLE_TRANSCRIPTS.find(
+      (s) => extractVideoId(s.videoUrl) === videoId || s.id === videoId
+    );
 
-    res.json({
-      success: true,
-      videoId,
-      itemCount: transcriptItems.length,
-      transcript: fullTranscript
+    if (matchingPreset && matchingPreset.transcript) {
+      console.log(`[fetch-transcript] Serving verified preset transcript fallback for: ${videoId}`);
+      return res.json({
+        success: true,
+        videoId,
+        itemCount: 1,
+        source: 'verified_cached_fallback',
+        transcript: matchingPreset.transcript
+      });
+    }
+
+    return res.status(500).json({
+      error: `Could not retrieve transcript from YouTube. Cloud serverless IPs (such as Vercel) are often blocked by YouTube's anti-bot system. You can paste the transcript text directly into the prompt box, or run locally via 'npm run dev'.`
     });
   } catch (error) {
     console.error('Error fetching YouTube transcript:', error.message);
-    res.status(500).json({
+    return res.status(500).json({
       error: `Could not retrieve transcript: ${error.message || 'Captions may be disabled on this video'}. You can paste the transcript text directly into the prompt box.`
     });
   }

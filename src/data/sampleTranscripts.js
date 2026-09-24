@@ -33,6 +33,28 @@ Your wardrobe should work as hard as your training schedule. When every piece is
 Moving laterally on the court challenges ankles, hips, and rotational core in ways traditional linear gym machines never will. 
 For court work, you need apparel engineered specifically for explosive lateral cuts: ultra-lightweight stretch shorts with dedicated ball pockets, quick-drying antibacterial performance collars that don't chafe, and fabrics that breathe in high heat. 
 After 90 minutes on the court, going straight into contrast therapy—20 minutes in the dry cedar sauna followed by a 3-minute cold plunge at 48 degrees—cuts delayed onset muscle soreness by over 50%. Performance is a 360-degree loop: training, nutrition, movement variety, and restorative recovery.`
+  },
+  {
+    id: 'bodybuilding-vs-bodybreaking',
+    title: 'BodyBUILDING, Not BodyBreaking: Internal vs. External Training',
+    videoUrl: 'https://youtu.be/iwpopxV3Wm0',
+    category: 'BodyBuilding vs BodyBreaking',
+    apparelFocus: "Seamless Mobility Compression, 4-Way Stretch Shorts & Performance Tanks",
+    transcript: `Welcome to the Bodybuilding, Not Bodybreaking YouTube channel. Here we are giving you an explanation as to what the practice entails—what are we talking about when we say 'Bodybuilding, Not Bodybreaking'—so that our viewers can get an understanding of where we're coming from. Basically, what we're trying to do with this practice is blend the concepts of internal training and external training: internal being tissue-specific training, and external being task-specific training.
+
+External, task-specific training is what everybody watching this video likely already does: traditional weight training exercises like the squat, hinge, deadlifts, RDLs, pushing movements like bench pressing and shoulder pressing, and pulling movements like rowing, pulldowns, and pull-ups. The objective is simply: can you accomplish the task? Can you squat from point A to point B? Can you pick up the weight from point A to point B? Can you push or pull the weight from point A to point B?
+
+That takes us to internal training as tissue-specific training. Tissue-specific training entails: how well does a joint function on an individual movement basis without compensation? We look at internal and external rotation of the shoulder and hip, flexion and extension, abduction and adduction, pronation and supination of the elbow, eversion and inversion of the ankle, and dorsiflexion and plantar flexion. Can your shoulder internally rotate without the scapula elevating? Can your hip internally rotate without your pelvis hiking up? Can you externally rotate your shoulder without extending your spine?
+
+If we are only doing external, task-specific training, our internal environment is sacrificed. It accommodates by prioritizing only the specific ranges of motion used in those lifts. Over time, your shoulder prioritizes only the range used in bench press or shoulder press; your hip only uses the range exposed to squats and deadlifts. The notion that our bodies only do these four or five exercises and that they will somehow create a robust human being is a flawed concept. Our bodies do a whole lot more than squat, deadlift, push, and pull.
+
+Weight training in the industry often neglects this. If you don't have internal rotation of the hip or shoulder when squatting or pushing, you quite literally are body breaking. In bodybuilding, we are supposed to be building our body. But how many people have their knees hurt when they squat, their back hurt when they deadlift, or their shoulders hurt when they bench press? That is a textbook example of internal tissue-specific function not lining up with external task-specific demands.
+
+The objective of 'Bodybuilding, Not Bodybreaking' is to blend the two practices together to create a sustainable, long-term approach to weight training. Exercise hasn't really changed that much in the last 50 years—people still use barbells, dumbbells, and machines. People do warm-ups and think they're addressing joint health. But treating it as 'just warming up' lacks intent. We are creating a paradigm shift: you are not just warming up your joints; you need to specifically train the function of those joints.
+
+There is also synergy in the middle ground. When you do a Romanian deadlift, you're training hip flexion and extension. When you squat, you're training hip flexion, abduction, and rotation. If we want a squat to be not only safer but more potent and stronger, we need a properly functioning internal environment. Regardless of your goal—rehab, strength, bodybuilding, athletic performance, or casual fitness—these joint functions facilitate everything.
+
+When programming, we ask: what internal function is required for the task? If you squat, you need hip flexion and internal rotation; so train those internal qualities. If you deadlift, train hip extension and external rotation. If you bench press, ensure internal rotation and contract the pec, or train thoracic spine extension so you aren't forced to compromise chest pressing output. Not only do you build a more robust system, but the potency and quality of your volume increases. The fitness industry is full of ego-lifting on external tasks when people lack the prerequisite range of motion. Training the internal environment makes every external task safer, more productive, and truly sustainable.`
   }
 ];
 
