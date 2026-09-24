@@ -15,7 +15,7 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
 ## Highlights & Features
 
 - **Minimalist Luxury Interface**: Deep obsidian (`#0a0c0f`) aesthetic, warm gold accents (`#c5a880`), frosted glass cards, and smooth micro-animations matching Life Time’s athletic luxury ethos.
-- **YouTube Caption Auto-Extractor**: Paste any YouTube video or Shorts link to fetch the full transcript with 1 click, or paste raw transcripts directly into the prompt box.
+- **YouTube Caption Auto-Extractor & Cloud Fallback**: Paste any YouTube video or Shorts link to fetch the full transcript with 1 click, or paste raw transcripts directly into the prompt box. Includes an instant client-side matcher and serverless verified transcript fallback to bypass YouTube's datacenter IP restrictions on cloud hosting (Vercel).
 - **Platform-Native Copywriting Engine**:
   - **LinkedIn Executive Post**: 1–2 line magnetic hook visible above the fold (under 140 chars), spaced bulleted takeaways connecting physical discipline to leadership and life performance, clean whitespace, and targeted hashtags.
   - **Threads Series**: Snappy, conversational opener (<280 chars) followed by 3–4 bite-sized sequential thread pieces, with individual copy buttons for each segment as well as a "Copy Full Thread" button.
@@ -31,7 +31,7 @@ An AI-powered content repurposing studio engineered for [Life Time Men's Apparel
 - **Secure `.env` Integration**:
   - Reads `GEMINI_API_KEY` from your local `.env` file (kept private and git-ignored).
   - In-app **API Key Modal** lets you view status and update your key directly without restarting the server.
-- **Instant Demo Presets**: Includes 3 curated fitness & athletic apparel transcripts (*5:30 AM Discipline*, *Gym-to-Street Capsule*, *Pickleball & Active Recovery*) and a 1-click "Explore Demo Output" button.
+- **Instant Demo Presets**: Includes 4 curated fitness & athletic apparel transcripts (*5:30 AM Discipline*, *Gym-to-Street Capsule*, *Pickleball & Active Recovery*, and *BodyBUILDING vs BodyBreaking: Internal vs External Training*) and a 1-click "Explore Demo Output" button.
 
 ---
 
